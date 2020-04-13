@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // [[3,2,1].reduce(Math.pow),[].reduce(Math.pow)]
+        // console.log([3,2,1].reduce(Math.pow))
+        // var  name = '24!';
+        // (function(){
+        //     if(typeof name === 'undefined'){ // 2true
+        //         var name = 'jack'  //1变量提升  
+        //         console.log('goodbay'+name) //3输出
+        //     }else{
+        //         console.log('hello' + name)
+        //     }
+        // })()
+
+    //  7
+    // var ary = [0,1,2]
+    // ary[10] = 10
+    // console.log(ary.filter(function(x){return x === undefined}))  // filter不会对空数组进行检测 会跳过空元素
+
+    // 8 
+    // var two = 0.2
+    // var one = 0.1
+    // var eight = 0.8
+    // var six = 0.6
+    // [two - one == one, eight - six == two ]  // true false js浮点数精度的问题 
+
+    // 9  new String('a') 返回一个对象
+    // new String('a')  === 'a' //false
+    // String('a') === 'a' // true
+    
+    // // 10 
+    // function isOdd(num){
+    //     return num % 2 == 1
+    // }
+    // function isEven(num){
+    //     return num % 2 == 0
+    // }
+    // function isSane(num){
+    //     console.log(num)
+    //     return isEven(num) || isOdd(num)
+    // }
+    // var values = [7,4,'13', -9 , Infinity]
+    // console.log(values.map(isSane))
+
+    //  11 Arry.isArray(Array.protitype)  true  数组的原女性是数组  对象的原型是对象 函数的原型是函数
+
+    // 12
+    // var ary = Array(3)
+    // ary[0] = 2
+    // console.log(ary.map(function(em){return '1'}))  //没有值 map会跳过不会执行回调函数
+
+    // 13 3.toString() 报错   在js中1. .1  都是合法的数字  所以在这3.当作i数字来处理
+    (function(){
+        var x = y = 1;
+    })()
+    console.log(y) // 1
+    // console.log(x)  // 报错    作用域问题 y被赋值成为全局变量 
+
+    function foo(){}
+    console.log(foo)
+
+    // vue响应式原理
+        // 吧一个普通的js对象传入 vue实例中作为data vue会遍历此对象的所有的属性 并用object.definePropert将这些属性都 转换为getter和setter
+        // 每个组件实例都已有一个watcher实例 会在组件渲染的过程中吧接触的数据属性都记录为依赖，然后当依赖的setter触发时，watcher会监听到，
+    // 
+    // get和post请求区别
+    // get请求url链接有长度限制，poist没，
+    // get请求参数会被保留在历史记录中，post不会
+    // get请求在返回时不会重复提交，post会
+    // get请求产生的url链接地址可以被收藏，post不会 
+    // get请求参数会展示在url链接中，post在request body中
+
+    // 安全问题
+    // csrf
+        // 跨站请求伪造
+        // 用户登录a网站 诱导用户点击b网站的某个链接携带了cookie 
+        // token验证
+    // xss  跨站脚本攻击
+        // 核心原理 向页面注入恶意代码，恶意代码可以被执行
+        // 防御 让恶意代码不可执行
+
+        // directive 指令
+        // Vue.observable 可以将对象添加为可响应的
+        // immediate watch中三个参数handle，deep，用来发现对象内部值的变化，immediate立即以表达式的当前值触发回调
+        // activated 被keep-alive缓存的组件激活时被调用  
+        // deactivated  被keep-alive缓存的组件停用时被调用
+        // 
+    </script>
+</body>
+</html>
