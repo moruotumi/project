@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建构造函数 父类
+        function Person(name){
+            this.name = name
+            this.sum = function(){
+                console.log(this.name)
+            }
+        }
+        // 为父类的原型添加属性
+        Person.prototype.age = 10
+        
+        // 原型链继承
+        function Per(){
+            this.name = 'ker'
+        }
+        Per.prototype = new Person()
+        var per1 = new Per()
+        // 子类的 实例也是父类的实例 可以使用父类的方法但是属性的继承无意义
+        // 缺点 只能执行一次，无法给属性传值
+        per1.sum()
+    </script>
+
+    <script>
+        // 构造继承
+        // 在子类的内部调用父类，通过call改变父类中this的指向 
+        // 创建子实例时可以向父类传递参数  可以继承属性但是不可以继承辅父类的方法
+        function Animation(name, age){
+            this.name = name
+            this.age = age
+            this.sum = function(){
+                console.log(this.name)
+            }
+        }
+        function Cat(name,age, sex, score){
+            Animation.call(this, name, age)
+            this.sex = sex
+            this.score = score
+        }
+        var cat1 = new Cat('tom' , 19, 'nan', 100)
+    </script>
+
+    <script>
+        // 组合继承
+        function Animation(name, age){
+            this.name = name
+            this.age = age
+            this.sum = function(){
+                console.log(this.name)
+            }
+        }
+        function Cat(name,age, sex, score){
+            Animation.call(this, name, age)
+            this.sex = sex
+            this.score = score
+        }
+        Cat.prototype = new Animation();
+        Cat.prototype.constructor = Animation
+        var cat2 = new Animation('zz' , 20, 'nam', 100)
+
+    </script>
+    <script>
+        //深拷贝
+        function deepClone(obj){
+            let objClone = Array.isArray(obj)?[]:{};
+            if(obj && typeof obj == 'object'){
+                for(key in obj){
+                    if(obj.hasOwnProperty(key)){
+                        objClone[key] = deepClone(obj[key])
+                    }else{
+                        objClone[key] = obj[key]
+                    }
+                }
+            }
+            return objClone
+        }
+        // 网络经济与企业管理（00910）
+        // 数据结构导论（02142）
+        // 马克思主义基本原理概论（03709）
+        // 运筹学基础（02375）
+        // 信息资源管理（02378）
+        // 数据库系统原理（04735）
+        // 中国近现代史纲要（03708）
+        // C++程序设计（04737）
+        // 管理经济学（02628）
+        // 软件开发工具（03173）
+        // 英语(二)（00015）
+        // 操作系统概论（02323）
+        // 计算机网络原理（04741）
+        // 日语(二)（00016）*
+        // 俄语(二)（00017）*
+        // 信息系统开发与管理（04757）
+    </script>
+    
+</body>
+</html>

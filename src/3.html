@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 冒泡排序  相邻元素两两相比 元素交换
+        function bubbleSort(arr){
+            let len = arr.length;
+            for(let i = 0;i<len;i++){
+                for(let j = 0; j<len-1;j++){
+                    if(arr[j] > arr[j+1]){
+                        var temp = arr[j+1]
+                        arr[j+1] = arr[j]
+                        arr[j] = temp
+                    }
+                }
+            }
+            return arr
+        }
+
+        // 选择排序 选择最小的数放在最前面
+        function selectSort(arr){
+            let len = arr.length
+            var minIndex,temp;
+            for(let i = 0; i<len-1;i++){
+                minIndex = i;
+
+            }
+        }
+        var a = 0;
+        if(true){
+            a= 1
+            function a(){}
+            a=21
+        }
+    </script>
+</body>
+</html>
